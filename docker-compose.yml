@@ -1,0 +1,12 @@
+version: '3'
+services:
+    redalert:
+        restart: unless-stopped
+        image: kfir/redalert
+        environment: 
+            MQTT_HOST: 127.0.0.1
+            MQTT_PORT: 1883
+            MQTT_USER: user
+            MQTT_PASS: pass
+
+             
