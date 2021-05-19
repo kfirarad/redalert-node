@@ -8,21 +8,22 @@ const mqttPort = process.env.MQTT_PORT || 1883;
 const mqttUser = process.env.MQTT_USER || '';
 const mqttPass = process.env.MQTT_PASS || '';
 
-const client = mqtt.connect(`mqtt://${mqttUser}:${mqttPass}@${mqttHost};${mqttPort}`);
+const client = mqtt.connect(`mqtt://${mqttUser}:${mqttPass}@${mqttHost}:${mqttPort}`);
 
 client.on('connect', () => {
   console.log('Connected');
   client.publish('redalert/online', 'true');
 });
 
-process.on('exit', (code) => {
+process.on('SIGINT', (code) => {
   client.publish('redalert/online', 'false');
-  console.log(`About to exit with code: ${code}`);
   client.end();
+  console.log(`About to exit with code: ${code}`);
 });
 
 const setState = (locations) => {
   locations.forEach((location) => {
+    console.log(location);
     client.publish(`redalert/locations/${location}`, Date.now());
   });
   if (locations.length === 0) {
