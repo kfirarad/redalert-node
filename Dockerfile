@@ -2,6 +2,9 @@ FROM node:lts-stretch-slim
 
 ADD . /app
 WORKDIR /app
-RUN yarn
+
+ENV NODE_ENV=production
+
+RUN yarn install --prod
 
 CMD yarn start
