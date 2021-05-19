@@ -5,7 +5,7 @@ Publishing the IDF's [Home-Front Command notifications](https://www.oref.org.il/
 
 ## Requierments
   1. Docker / Node 14
-  2. MQTT server [mosquitto](https://github.com/eclipse/mosquitto)
+  2. MQTT server ( [mosquitto](https://github.com/eclipse/mosquitto) is a great option)
 
 ## How to use
   ### Docker
