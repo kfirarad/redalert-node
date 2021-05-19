@@ -3,12 +3,20 @@
 ## Introduction
 Publishing the IDF's [Home-Front Command notifications](https://www.oref.org.il//12481-he/Pakar.aspx) to MQTT server
 
+## Requierments
+  1. Docker / Node 14
+  2. MQTT server [mosquitto](https://github.com/eclipse/mosquitto)
+
 ## How to use
   ### Docker
   The docker image build for the following arch: linux/amd64,linux/arm64,linux/arm/v7
   Using docker-compose
-  1. Change the ENV variables in the docker-compose.yml file according to your configuration.
-  2. RUN `$ docker-compose up -d`
+  1. Change the ENV variables in the .env file according to your configuration.
+    * MQTT_HOST
+    * MQTT_PORT
+    * MQTT_USER
+    * MQTT_PASS
+  3. RUN `$ docker-compose up -d`
   
   or simple `docker run` command:
   
