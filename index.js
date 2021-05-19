@@ -18,11 +18,13 @@ client.on('connect', () => {
 process.on('exit', (code) => {
   client.publish('redalert/online', 'false');
   console.log(`About to exit with code: ${code}`);
-  client.disconnect();
+  client.end();
 });
 
 const setState = (locations) => {
-  client.publish('redalert/locations', JSON.stringify(locations));
+  locations.forEach((location) => {
+    client.publish(`redalert/locations/${location}`, Date.now());
+  });
   if (locations.length === 0) {
     client.publish('redalert/alert', 'off');
   } else {
