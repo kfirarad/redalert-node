@@ -24,7 +24,7 @@ process.on('SIGINT', (code) => {
 const setState = (locations) => {
   locations.forEach((location) => {
     console.log(location);
-    client.publish(`redalert/locations/${location}`, Date.now());
+    client.publish(`redalert/locations/${location}`, Date());
   });
   if (locations.length === 0) {
     client.publish('redalert/alert', 'off');
@@ -48,7 +48,6 @@ const callApi = () => {
     .then(({ data = {} }) => {
       const { data: locations = [] } = data;
       setState(locations);
-      console.log(JSON.stringify(locations));
     })
     .catch((error) => {
       console.log(error);
