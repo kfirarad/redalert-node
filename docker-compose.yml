@@ -4,9 +4,9 @@ services:
         restart: unless-stopped
         image: kfir/redalert
         environment: 
-            MQTT_HOST: 127.0.0.1
-            MQTT_PORT: 1883
-            MQTT_USER: user
-            MQTT_PASS: pass
+            MQTT_HOST: ${MQTT_HOST}
+            MQTT_PORT: ${MQTT_PORT}
+            MQTT_USER: ${MQTT_USER}
+            MQTT_PASS: ${MQTT_PASS}
 
              
