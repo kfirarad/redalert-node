@@ -1,20 +1,20 @@
 {
   "name": "redalert",
   "version": "1.0.0",
-  "description": "Script to detect and notify missiles alerts in Israel",
+  "description": "NON OFFICIAL IDF Home-Front command misselse norifications to MQTT",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kfirarad/redalert.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kfirarad/redalert/issues"
   },
